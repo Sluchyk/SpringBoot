@@ -1,5 +1,5 @@
 package com.example.demo.uuid;
-
+import org.example.UUIDService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,13 +15,14 @@ public class UUIDRestController {
     public UUIDService getUuidService() {
         return uuidService;
     }
-       @Autowired
+
+    @Autowired
     public void setUuidService(UUIDService uuidService) {
         this.uuidService = uuidService;
     }
-     @GetMapping("/uuid")
-    public List<UUID> getUUIDList(@RequestParam("parameter") int size)
-     {
-         return  uuidService.getUUIDs(size);
-     }
+
+    @GetMapping("/uuid")
+    public List<UUID> getUUIDList(@RequestParam("parameter") int size) {
+        return uuidService.getUUIDs(size);
+    }
 }
